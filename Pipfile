@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "*"
+pytest-cov = "*"
 
 [packages]
 uvicorn = {extras = ["standard"],version = "*"}
