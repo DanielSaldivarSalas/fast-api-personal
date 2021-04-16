@@ -10,6 +10,10 @@ pipenv run uvicorn main:app --reload
 ### Interactive API while Application is running
 http://localhost:8000/docs
 
+### Alternative Documentation provided by redoc
+```
+http://localhost:8000/redoc
+```
 ## Running the test suite
 ```
 pipenv run pytest

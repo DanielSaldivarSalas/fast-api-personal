@@ -4,12 +4,16 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pytest = "*"
 pytest-cov = "*"
+pytest = "*"
+flake8 = "*"
 
 [packages]
 uvicorn = {extras = ["standard"],version = "*"}
 fastapi = "*"
+typing-extensions = "*"
+starlette = "*"
+requests = "*"
 
 [requires]
 python_version = "3.9.4"

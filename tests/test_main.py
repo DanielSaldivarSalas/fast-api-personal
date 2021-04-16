@@ -1,24 +1,25 @@
-from main import *
-from typing import Dict
+from main import app
 from fastapi.testclient import TestClient
 
 client = TestClient(app)
 
+
 def test_read_root():
-    #when
+    # when
     response = client.get("/")
 
-    #then
+    # then
     assert response.status_code == 200
     assert response.json() == {"msg": "Hello World"}
 
+
 def test_read_item():
-    #when
+    # when
     response = client.get("/items/87")
 
-    #then
+    # then
     assert response.status_code == 200
-    assert response.json() == {"item_id": 87,
-                                "q": None,} 
-    
-    
+    assert response.json() == {
+        "item_id": 87,
+        "q": None,
+    }
