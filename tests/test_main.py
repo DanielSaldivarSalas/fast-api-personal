@@ -1,4 +1,4 @@
-from main import app
+from src.main import app
 from fastapi.testclient import TestClient
 
 client = TestClient(app)
@@ -70,3 +70,11 @@ def test_get_model_resnet_value():
         "model_name": "resnet",
         "message": "Have some residuals"
     }
+
+
+def test_get_model_returns_422_with_values_outside_the_enum():
+    # when
+    response_jack = client.get("models/jack")
+
+    # then
+    assert response_jack.status_code == 422

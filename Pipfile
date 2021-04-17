@@ -7,6 +7,7 @@ verify_ssl = true
 pytest-cov = "*"
 pytest = "*"
 flake8 = "*"
+mypy = "*"
 
 [packages]
 uvicorn = {extras = ["standard"],version = "*"}

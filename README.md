@@ -4,7 +4,7 @@ This is for my personal understand of fast api
 
 ## Running application
 ```
-pipenv run uvicorn main:app --reload
+pipenv run uvicorn src.main:app --reload
 ```
 
 ### Interactive API while Application is running
