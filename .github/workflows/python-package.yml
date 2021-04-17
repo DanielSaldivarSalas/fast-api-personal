@@ -55,4 +55,4 @@ jobs:
     
     - name: Static type checker with mypy
       run: |
-        pipenv run mypy --strict src/
+        pipenv run mypy --strict app/

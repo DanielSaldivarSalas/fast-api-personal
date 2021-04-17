@@ -1,5 +1,5 @@
 
-from src.models import ModelName
+from app.models import ModelName
 
 
 def test_correct_enum_values_for_ModelName():

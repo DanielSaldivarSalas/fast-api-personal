@@ -23,3 +23,8 @@ pipenv run pytest
 ```
 pipenv run pytest --cov-config=.coveragerc --cov .
 ```
+
+## Running Static Type Checker
+```
+pipenv run mypy --strict src/
+```
