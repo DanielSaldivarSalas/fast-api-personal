@@ -29,4 +29,6 @@ def get_model(model_name):
         result["message"] = "Deep Learning FTW!"
     elif model_name == ModelName.lenet:
         result["message"] = "LeCNN all the images"
+    elif model_name == ModelName.resnet:
+        result["message"] = "Have some residuals"
     return result

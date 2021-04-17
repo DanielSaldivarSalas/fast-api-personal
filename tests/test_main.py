@@ -58,3 +58,15 @@ def test_get_model_lenet_value():
         "model_name": "lenet",
         "message": "LeCNN all the images"
     }
+
+
+def test_get_model_resnet_value():
+    # when
+    response = client.get("models/resnet")
+
+    # then
+    assert response.status_code == 200
+    assert response.json() == {
+        "model_name": "resnet",
+        "message": "Have some residuals"
+    }
