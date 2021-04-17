@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.9.4
-    - name: Install dependencies
+    - name: Install pipen, wheel, and pip
       run: |
         python -m pip install --upgrade pip
         python -m pip install pipenv
@@ -33,7 +33,7 @@ jobs:
         path: ~/.local/share/virtualenvs
         key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
     
-    - name: Install dependencies
+    - name: Install dependencies from Pipfile
       if: steps.cache-pipenv.outputs.cache-hit != 'true'
       run: |
         pipenv install --deploy --dev
@@ -44,6 +44,11 @@ jobs:
         pipenv run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         pipenv run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
     - name: Test with pytest
       run: |
-        pipenv run pytest
+        pipenv run pytest -v
+
+    - name: Check for Security vulnerabilities
+      run: |
+        pipenv check
