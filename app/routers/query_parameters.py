@@ -1,3 +1,4 @@
+from typing import Optional, Union
 from fastapi import APIRouter
 
 fake_items_db = [
@@ -17,3 +18,12 @@ router = APIRouter()
 @router.get("/query_parameter/items")
 async def read_item(skip: int = 0, limit: int = 10) -> list[dict[str, str]]:
     return fake_items_db
+
+# Using Path parameter {item_id}
+@router.get("/query_parameter/items/{item_id}")
+async def read_item_optional_parameter(
+    item_id: int, q: Optional[str] = None
+) -> dict[str, Union[int, Optional[str]]]:
+    if q:
+        return {"item_id": item_id, "q": q}
+    return {"item_id": item_id}

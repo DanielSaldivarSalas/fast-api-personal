@@ -25,3 +25,26 @@ def test_read_item(fake_db_results):
     # then
     assert response.status_code == 200
     assert response.json() == fake_db_results
+
+
+def test_read_item_optional_parameter_not_specified():
+    # when
+    response = client.get("/query_parameter/items/87")
+
+    # then
+    assert response.status_code == 200
+    assert response.json() == {
+        "item_id": 87,
+    }
+
+
+def test_read_item_optional_parameter_specified():
+    # when
+    response = client.get("/query_parameter/items/87?q=9")
+
+    # then
+    assert response.status_code == 200
+    assert response.json() == {
+        "item_id": 87,
+        "q": "9",
+    }

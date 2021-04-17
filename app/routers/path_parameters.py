@@ -1,4 +1,3 @@
-from typing import Optional, Union
 from app.models import ModelName
 from fastapi import APIRouter
 router = APIRouter()
@@ -7,14 +6,6 @@ router = APIRouter()
 @router.get("/path_parameter/items/current")
 async def read_item_current() -> dict[str, str]:
     return {"item_id": "Current item"}
-
-
-# Using Path parameter {item_id}
-@router.get("/path_parameter/items/{item_id}")
-async def read_item(
-    item_id: int, q: Optional[str] = None
-) -> dict[str, Union[int, Optional[str]]]:
-    return {"item_id": item_id, "q": q}
 
 
 @router.get("/path_parameter/models/{model_name}")

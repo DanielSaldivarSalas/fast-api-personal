@@ -15,18 +15,6 @@ def test_read_item_current():
     }
 
 
-def test_read_item():
-    # when
-    response = client.get("/path_parameter/items/87")
-
-    # then
-    assert response.status_code == 200
-    assert response.json() == {
-        "item_id": 87,
-        "q": None,
-    }
-
-
 def test_get_model_alexnet_value():
     # when
     response = client.get("/path_parameter/models/alexnet")
