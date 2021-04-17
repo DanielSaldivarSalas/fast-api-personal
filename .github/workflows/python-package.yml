@@ -25,7 +25,6 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install pipenv
         python -m pip install --upgrade pipenv wheel 
-        if [ -f Pipfile ]; then pipenv install --deploy; fi
         
 
     - id: cache-pipenv
@@ -48,8 +47,3 @@ jobs:
     - name: Test with pytest
       run: |
         pipenv run pytest
-
-    - name: Run type checking
-      run: |
-        npm install -g pyright
-        pipenv run typecheck
