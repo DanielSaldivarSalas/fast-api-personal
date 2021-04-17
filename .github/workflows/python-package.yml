@@ -52,3 +52,7 @@ jobs:
     - name: Check for Security vulnerabilities
       run: |
         pipenv check
+    
+    - name: Static type checker with mypy
+      run: |
+        pipenv run mypy src/
