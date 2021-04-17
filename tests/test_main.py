@@ -37,9 +37,24 @@ def test_read_item():
 
 
 def test_get_model_alexnet_value():
+    # when
     response = client.get("models/alexnet")
+
+    # then
     assert response.status_code == 200
     assert response.json() == {
         "model_name": "alexnet",
         "message": "Deep Learning FTW!"
+    }
+
+
+def test_get_model_lenet_value():
+    # when
+    response = client.get("models/lenet")
+
+    # then
+    assert response.status_code == 200
+    assert response.json() == {
+        "model_name": "lenet",
+        "message": "LeCNN all the images"
     }
