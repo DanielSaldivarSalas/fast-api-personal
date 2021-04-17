@@ -13,6 +13,17 @@ def test_read_root():
     assert response.json() == {"msg": "Hello World"}
 
 
+def test_read_item_current():
+    # when
+    response = client.get("items/current")
+
+    # then
+    assert response.status_code == 200
+    assert response.json() == {
+        "item_id": "Current item"
+    }
+
+
 def test_read_item():
     # when
     response = client.get("/items/87")
@@ -22,4 +33,13 @@ def test_read_item():
     assert response.json() == {
         "item_id": 87,
         "q": None,
+    }
+
+
+def test_get_model_alexnet_value():
+    response = client.get("models/alexnet")
+    assert response.status_code == 200
+    assert response.json() == {
+        "model_name": "alexnet",
+        "message": "Deep Learning FTW!"
     }
