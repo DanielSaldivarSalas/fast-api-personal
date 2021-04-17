@@ -56,3 +56,7 @@ jobs:
     - name: Static type checker with mypy
       run: |
         pipenv run mypy --strict app/
+
+    - name: Test Coverage
+      run: |
+        pipenv run pytest --cov-config=.coveragerc --cov .
